@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 int main(void){
     /* Accessing Files */
     //FILE * fp = NULL;
@@ -25,7 +26,16 @@ int main(void){
     //    printf(" Reading form a file fclose is Successful!\n");
     //}
 
-
+    /* Writing to a File */
+    FILE * fp;
+    char filename[50];
+    printf("Enter the filename of the file to create:");
+    fgets(filename,50,stdin);
+    fp = fopen(filename,"w");
+    /*write to file*/
+    fprintf(fp,"Inventory\n");
+    fprintf(fp,"%d %s %f\n",100,"Widget",0.29);
+    fputs("End of List",fp);
 
     return 0;
 }
